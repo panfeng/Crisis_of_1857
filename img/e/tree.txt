@@ -1,0 +1,5 @@
+0006.jpg
+0007.jpg
+0008.jpg
+tree.txt
+dir /B > filelist.txt

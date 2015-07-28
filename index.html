@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>Economic Manuscripts: Capital: Volume One</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Le styles -->
+<link href="./css/bootstrap.min.css" rel="stylesheet" />
+<link href="./css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+  .sidebar-nav {
+    padding: 9px 0;
+  }
+
+  .MsoNormal {
+    font-size:8.5pt;
+    font-family:"Times New Roman"
+  }
+
+  .span4 {
+    /*width: 30%;*/
+    /*position: fixed;*/
+  }
+
+
+}
+
+@media (max-width: 980px) {
+  /* Enable use of floated navbar text */
+  .navbar-text.pull-right {
+    float: none;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="brand" href="./">Book of the Crisis of 1857</a>
+        <div class="nav-collapse collapse">
+
+<!--           <div class="btn-group pull-right">
+            <button class="btn btn-primary"><a href="" class="navbar-link"><i class="icon-user icon-white"></i> admin </a>
+            </button>
+            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+              <span class="caret"></span>
+            </button>
+            <button class="dropdown-menu text-left">
+              <li><a href="">Account setting</a></li>
+              <li><a href="">URL added</a></li>
+              <li class="divider"></li>
+              <li><a href="">Logout</a></li>
+            </button>
+ -->          
+         </div>
+
+
+          <ul class="nav">
+            <li><a href="http://mega.econ.tohoku.ac.jp/mega/">MEGA-Project</a></li>
+          </ul>
+
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="span4">
+        <ul class="nav nav-list bs-docs-sidenav">
+          <li class="nav-header"><li class="text-center"><a href="./"><i class="icon-home"></i>Home</a></li>
+          <li class="nav-header text-center">Source List</li> 
+
+          <div class="content mCustomScrollbar" style="height:800px">
+
+            <table class="table table-bordered table-striped table-hover table table-condensed">
+              <tbody id="src_list">
+              </tbody>
+            </table>
+
+
+          </div>
+
+        </ul>
+      </div><!--/span-->
+
+      <div class="span7  pull-right">
+        <div class="row">
+
+
+
+
+        <nav id="pager">
+          <ul class="pager">
+            <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
+            <li>
+                    <input id="page_num" type="text" class="form-control" placeholder="1">
+            </li>
+            <li class="next"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+          </ul>
+        </nav>
+
+
+
+          <div class="content" id="src_content"></div>
+
+          <!-- <iframe id="iframe" src="./src_content.html" class="content mCustomScrollbar _mCS_1" style="height:800px;width:800px;overflow:auto;" > </iframe> -->
+
+        </div>
+
+      </div>
+    </div>
+
+
+<!--     <hr style="border-top: solid 1px #3E1485;"/>
+    <footer class="pagination-centered offset3">
+      <a href="http://www.econ.tohoku.ac.jp">
+        <img src="./img/TohokuU_Logo.gif" alt="TOHOKU UNIVERSITY" width="300" />
+      </a>
+    </footer> 
+  -->
+
+
+
+
+</div><!--/row-->
+</div><!--/.fluid-container-->
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/jquery.mousewheel.min.js"></script>
+    <script src="./js/jquery.mCustomScrollbar.min.js"></script>
+    <script src="./js/file.js"></script>
+
+    <script>
+      // (function($){
+      //   $(window).load(function(){
+      //     $(".content").mCustomScrollbar({
+      //       scrollInertia:600,
+      //   //  autoDraggerLength:false,
+
+      //   scrollButtons:{
+      //     enable:true,
+      //     scrollType:"continuous",
+      //     scrollSpeed:80,
+      //     scrollAmount:80
+
+      //   },
+      //   advanced:{
+      //     updateOnBrowserResize:true,
+      //     updateOnContentResize:false,
+      //     autoExpandHorizontalScroll:false,
+      //     autoScrollOnFocus:true
+      //   },
+      //   theme:"dark-thick" 
+      // });
+      //   });
+      // })(jQuery);
+</script>
+
+<script>
+// onScreen jQuery plugin v0.2.1
+// (c) 2011-2013 Ben Pickles
+//
+// http://benpickles.github.io/onScreen
+//
+// Released under MIT license.
+;(function($) {
+  $.expr[":"].onScreen = function(elem) {
+    var $window = $(window)
+    var viewport_top = $window.scrollTop()
+    var viewport_height = $window.height()
+    var viewport_bottom = viewport_top + viewport_height
+    var $elem = $(elem)
+    var top = $elem.offset().top
+    var height = $elem.height()
+    var bottom = top + height
+
+    return (top >= viewport_top && top < viewport_bottom) ||
+    (bottom > viewport_top && bottom <= viewport_bottom) ||
+    (height > viewport_height && top <= viewport_top && bottom >= viewport_bottom)
+  }
+})(jQuery);
+
+</script>
+</body></html>
