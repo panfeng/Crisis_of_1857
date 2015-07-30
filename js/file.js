@@ -1,13 +1,11 @@
 var src_list = './src_list.html';
 var src_content = './src_content.html';
 var e_arr = [];
-
 var div_page;
 
 
 
 // format number with leading 0, 1 => 0001
-
 function pad (str, max) {
   str = str.toString();
   return str.length < max ? pad("0" + str, max) : str;
@@ -28,23 +26,6 @@ $.ajax({
     }
 });
 
-// image check function
-// function img_check(filename){
-// 	$.ajax({
-// 	    url:'./img/e/' + filename + '.jpg',
-// 	    type:'HEAD',
-// 	    error: function()
-// 	    {
-// 	    },
-// 	    success: function()
-// 	    {
-// 	    	console.log(filename);
-// 	    }
-// 	});
-// }
-
-
-// var tbody = $("<t>");
 
 // $(document).ready(function() {
     $.get(src_list, function(data) {
@@ -56,19 +37,11 @@ $.ajax({
 		    	// e_arr[i+1] = $(div_text[i]).text().trim();
 		    	e_arr[i] = $(div_text[i]).text().replace(/\[\d*\]/, "").trim();
 	    		    };
-
-	    // for (var i = 0; i < e_arr.length; i++) {
-	    // 	$("#src_list").append("<tr><td>"+ (i+1) +"</td><td>" + e_arr[i] + "</td></tr>");
-	    // };
-
     });
 
     $.get(src_content, function(data) {
 	    // var fileDom = $(data).contents();
 	    var fileDom = $(data);
-	    // console.log(fileDom.find("page"));
-	    // var page = fileDom.find("page")[1];
-
 
 	   $(window).scroll(function() {
 		    var height = $(window).scrollTop();
@@ -124,10 +97,11 @@ $.ajax({
 
 
 
-
-		    if(height <= 1){
+		    if(height == 0){
 		    	$(".navbar-inner").show();
 		    	$("#pager").hide();
+
+
 		    }else{
 		    	$(".navbar-inner").hide();
 		    	$("#pager").show();
@@ -153,6 +127,4 @@ $.ajax({
     });
 // });
 // <hr style="border-top: solid 1px #3E1485;">
-
-
 
